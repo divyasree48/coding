@@ -1,0 +1,15 @@
+mod=1e9+7
+def be(a,b):
+    res=1
+    while(b):
+        if b&1:
+            b-=1
+            res*=a
+        else:
+            b//=2
+            a=a*a
+    return res
+def inverse(b):
+    return be(b,mod)
+print(be(2,7))
+print(inverse(10))
