@@ -1,0 +1,19 @@
+size=2
+l=[5,5]
+d={}
+for i in l:
+    n=i
+    j=2
+    while(j<=n):
+        while n%j==0:
+            print(n,j)
+            if j in d.keys():
+                d[j]+=1
+            else:
+                d[j]=1
+            n//=j
+        j+=1
+a=1
+for i in d.values():
+    a*=(i+1)
+print(a)
