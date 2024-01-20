@@ -1,0 +1,26 @@
+def sumsubarraymins(a,n):
+    left,right=[None]*n,[None]*n
+    s1,s2=[],[]
+    for i in range(0,n):
+        cnt=1
+        while(len(s1)>0 and s1[-1][0]>a[i]):
+            cnt+=s1[-1][1]
+            s1.pop()
+        s1.append([a[i],cnt])
+        left[i]=cnt
+    for i in range(n-1,-1,-1):
+        cnt=1
+        while(len(s2)>0 and s2[-1][0]>=a[i]):
+            cnt+=s2[-1][1]
+            s2.pop()
+        s2.append([a[i],cnt])
+        right[i]=cnt
+    print(left,right)
+    res=0
+    for i in range(0,n):
+        res+=a[i]*left[i]*right[i]
+    return res
+a=[11,81,94,43,3]
+n=5
+print(sumsubarraymins(a,n))
+    
