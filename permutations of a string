@@ -1,0 +1,12 @@
+def fun(s,vis,st):
+    if len(st)==len(s):
+        print(st)
+        return
+    for i in range(len(s)):
+        if vis[i]==0:
+            vis[i]=1
+            fun(s,vis,st+s[i])
+            vis[i]=0
+s=input()
+vis=[0]*len(s)
+fun(s,vis,"")
