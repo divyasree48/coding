@@ -6,7 +6,8 @@ def fun(i,n,k,l):
         return
     if l[i]<=k:
         a.append(l[i])
-        fun(i,n,k-l[i],l)
+        //fun(i+1,n,k-l[i],l) if we have to pick only one time
+        fun(i,n,k-l[i],l)//if we can pick unlimited times
         a.pop()
     fun(i+1,n,k,l)
 n,k=map(int,input().split())
