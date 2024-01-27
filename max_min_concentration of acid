@@ -1,0 +1,11 @@
+//given list of nums which indicates concentration of acids.return no.of ways where max and min concentrated acids should be given to 2 frnds.
+n=int(input())
+l=list(map(int,input().split()))
+a=min(l)
+b=max(l)
+c=l.count(a)
+d=l.count(b)
+if len(set(l))==1:
+  print(a*(b-1))
+else:
+  print(a*b*2)
