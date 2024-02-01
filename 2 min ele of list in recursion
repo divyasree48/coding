@@ -1,0 +1,17 @@
+# print 2 minimum elements from array with single call
+# like print(f(arr))
+def fun(n,l,i):
+    if i==n:
+        return [999999999,999999999]
+    a=fun(n,l,i+1)
+    if l[i]<a[0]:
+        temp=a[0]
+        a[0]=l[i]
+        a[1]=temp
+    elif l[i]<a[1]:
+        a[1]=l[i]
+    return a
+    
+n=int(input())
+l=list(map(int,input().split()))
+print(fun(n,l,0))
