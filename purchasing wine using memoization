@@ -1,0 +1,33 @@
+//purchasing wine
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll dp[1001][101];
+ll fun(int n,vector<ll>&l,int i,int j)
+{
+    if(i==j)
+    {
+        return n*l[i];
+    }
+    if(dp[i][j]!=-1)return dp[i
+    
+    
+    ][j];
+    ll a=(n-(j-i))*l[i]+fun(n,l,i+1,j);
+    ll b=(n-(j-i))*l[j]+fun(n,l,i,j-1);
+    return dp[i][j]=max(a,b);
+}
+int main()
+{
+    memset(dp,-1,sizeof(dp));
+    int n;
+    cin>>n;
+    ll a;
+    vector<ll>l;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        l.push_back(a);
+    }
+    cout<<fun(n,l,0,n-1);
+}
