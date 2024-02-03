@@ -1,0 +1,31 @@
+//one can purchase 2nd ele only if 1st ele is purchased or 3rd ele can be purchased only if 4th ele is already purchased. find maximum purchasing cost
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    int n;
+    cin>>n;
+    ll a;
+    vector<ll>l;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        l.push_back(a);
+    }
+    vector<vector<ll>>dp(n,vector<ll>(n,0));
+    for(int i=0;i<n;i++)
+    dp[i][i]=n*l[i];
+    for(int k=1;k<n;k++)
+    {
+        int i=0,j=k;
+        while(j<n)
+        {
+            ll x=n-(j-i);
+            dp[i][j]=max((x*l[i])+dp[i+1][j],(x*l[j])+dp[i][j-1]);
+            i+=1;
+            j+=1;
+        }
+    }
+    cout<<dp[0][n-1];
+}
